@@ -17,13 +17,13 @@ func TestGetArmy(t *testing.T) {
 
 	test := []tests{
 		{Rarity: "4", unlockArena: "", cvc: "", want: nil},
-		{Rarity: "3", unlockArena: "2", cvc: "2", want: map[string]model.ArmyInfo{
-			"19503": {
-				ID:           "19503",
-				Rarity:       "1",
-				UnlockArena:  "",
-				CombatPoints: "691",
-				Cvc:          "",
+		{Rarity: "1", unlockArena: "2", cvc: "2000", want: map[string]model.ArmyInfo{
+			"10508": {
+				ID:           "10508",
+				Rarity:       "2",
+				UnlockArena:  "2",
+				CombatPoints: "4848",
+				Cvc:          "1000",
 			},
 		},
 		},
@@ -32,7 +32,7 @@ func TestGetArmy(t *testing.T) {
 	for _, v := range test {
 		got, _ := GetArmy(v.Rarity, v.unlockArena, v.cvc)
 		if !reflect.DeepEqual(got, v.want) {
-			t.Error("expect:%v,got:%", v.want, got)
+			t.Error("expect: %v,got: %v", v.want, got)
 		}
 	}
 
@@ -52,7 +52,7 @@ func TestGetRarity(t *testing.T) {
 	for _, v := range test {
 		got := GetRarity(v.id)
 		if !reflect.DeepEqual(got, v.want) {
-			t.Error("expect:%v,got:%", v.want, got)
+			t.Error("expect: %v,got: %v", v.want, got)
 		}
 	}
 
@@ -72,7 +72,7 @@ func TestGetAtkRange(t *testing.T) {
 	for _, v := range test {
 		got := GetRarity(v.id)
 		if !reflect.DeepEqual(got, v.want) {
-			t.Error("expect:%v,got:%", v.want, got)
+			t.Error("expect: %v,got: %v", v.want, got)
 		}
 	}
 }
@@ -114,7 +114,7 @@ func TestGetArmyByUnlockArena(t *testing.T) {
 	for _, v := range test {
 		got := GetRarity(v.UnlockArena)
 		if !reflect.DeepEqual(got, v.want) {
-			t.Error("expect:%v,got:%", v.want, got)
+			t.Error("expect: %v,got: %v", v.want, got)
 		}
 	}
 }

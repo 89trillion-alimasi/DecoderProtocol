@@ -1,72 +1,93 @@
 {
-  "18108": {
-    "id": "18108",
-    "Rarity": "3",
-    "UnlockArena": "",
-    "CombatPoints": "5564",
-    "cvc": ""
-  },
-  "18402": {
-    "id": "18402",
-    "Rarity": "4",
-    "UnlockArena": "6",
-    "CombatPoints": "1540",
-    "cvc": ""
-  },
-  "19503": {
-    "id": "19503",
-    "Rarity": "1",
-    "UnlockArena": "",
-    "CombatPoints": "691",
-    "cvc": ""
-  },
-  "10206": {
-    "id": "10206",
+  "10306": {
+    "id": "10306",
     "Rarity": "1",
     "UnlockArena": "1",
-    "CombatPoints": "1826",
-    "cvc": ""
+    "CombatPoints": "2180",
+    "cvc": "1000"
+  },
+  "10508": {
+    "id": "10508",
+    "Rarity": "2",
+    "UnlockArena": "2",
+    "CombatPoints": "4848",
+    "cvc": "1000"
   },
   "13306": {
     "id": "13306",
     "Rarity": "2",
     "UnlockArena": "3",
     "CombatPoints": "2930",
-    "cvc": ""
+    "cvc": "1000"
   },
-  "16802": {
-    "id": "16802",
+  "16808": {
+    "id": "16808",
     "Rarity": "3",
     "UnlockArena": "3",
-    "CombatPoints": "822",
-    "cvc": ""
+    "CombatPoints": "6229",
+    "cvc": "1000"
   },
-  "19004": {
-    "id": "19004",
-    "Rarity": "4",
-    "UnlockArena": "",
-    "CombatPoints": "3687",
-    "cvc": ""
-  },
-  "13204": {
-    "id": "13204",
-    "Rarity": "3",
-    "UnlockArena": "2",
-    "CombatPoints": "2072",
-    "cvc": ""
-  },
-  "16307": {
-    "id": "16307",
-    "Rarity": "4",
-    "UnlockArena": "5",
-    "CombatPoints": "10242",
-    "cvc": ""
-  },
-  "18603": {
-    "id": "18603",
+  "18601": {
+    "id": "18601",
     "Rarity": "1",
     "UnlockArena": "",
-    "CombatPoints": "692",
-    "cvc": ""
+    "CombatPoints": "162",
+    "cvc": "1500"
+  },
+  "19001": {
+    "id": "19001",
+    "Rarity": "4",
+    "UnlockArena": "",
+    "CombatPoints": "960",
+    "cvc": "1900"
+  },
+  "10401": {
+    "id": "10401",
+    "Rarity": "1",
+    "UnlockArena": "1",
+    "CombatPoints": "181",
+    "cvc": "1000"
+  },
+  "10402": {
+    "id": "10402",
+    "Rarity": "1",
+    "UnlockArena": "1",
+    "CombatPoints": "379",
+    "cvc": "1000"
+  },
+  "18606": {
+    "id": "18606",
+    "Rarity": "1",
+    "UnlockArena": "",
+    "CombatPoints": "1826",
+    "cvc": "1500"
+  },
+  "19308": {
+    "id": "19308",
+    "Rarity": "3",
+    "UnlockArena": "",
+    "CombatPoints": "12749",
+    "cvc": "1900"
+  },
+  "11001": {
+    "id": "11001",
+    "Rarity": "3",
+    "UnlockArena": "2",
+    "CombatPoints": "533",
+    "cvc": "1000"
+  },
+  "15901": {
+    "id": "15901",
+    "Rarity": "3",
+    "UnlockArena": "4",
+    "CombatPoints": "408",
+    "cvc": "1000"
+  },
+  "16309": {
+    "id": "16309",
+    "Rarity": "4",
+    "UnlockArena": "5",
+    "CombatPoints": "14700",
+    "cvc": "1000"
   }
 }

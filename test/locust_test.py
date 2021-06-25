@@ -6,7 +6,7 @@ class QuickstartUser(HttpUser):
 
     @task
     def GetArmy(self):
-        self.client.get("/getarmy?rarity=3&unlockarena=3&cvc=")
+        self.client.get("/getarmy?rarity=1&unlockarena=1&cvc=1000")
 
 
     @task(4)
@@ -19,7 +19,7 @@ class QuickstartUser(HttpUser):
 
     @task
     def GetArmyByCVC(self):
-        self.client.get("/getarmybycvc?cvc=3")
+        self.client.get("/getarmybycvc?cvc=1900")
 
     @task
     def GetArmyByUnlockArena(self):
