@@ -22,7 +22,7 @@ func GetArmy(c *gin.Context) {
 
 	unlockArena := c.Query("unlockarena")
 	if unlockArena == "" {
-		c.String(400, "请输入士兵 unlock_arena\n")
+		c.String(400, "请输入士兵 unlockarena\n")
 		return
 	}
 
@@ -36,7 +36,7 @@ func GetArmy(c *gin.Context) {
 	armySlice, err := service.GetArmy(rarity, unlockArena, cvc)
 
 	if err != "" {
-		c.String(400, "err")
+		c.String(404, "未找到士兵")
 	}
 
 	// 将士兵信息以 json 形式返回
@@ -56,7 +56,7 @@ func GetRarity(c *gin.Context) {
 	rarity := service.GetRarity(id)
 
 	if rarity == "士兵不存在" {
-		c.String(400, "rarity")
+		c.String(404, "rarity")
 		return
 	}
 
@@ -68,17 +68,17 @@ func GetRarity(c *gin.Context) {
 // 请求样例: http://localhost:8000/get_atk_range?id=16909
 // 参数列表:
 //   - id 士兵 ID
-func GetAtkRange(c *gin.Context) {
+func GetCombatPoints(c *gin.Context) {
 	id := c.Query("id")
 	if id == "" {
 		c.String(400, "请输入士兵 ID\n")
 		return
 	}
 
-	CombatPoints := service.GetAtkRange(id)
+	CombatPoints := service.GetCombatPoints(id)
 
 	if CombatPoints == "士兵不存在" {
-		c.String(400, CombatPoints)
+		c.String(404, CombatPoints)
 		return
 	}
 	// 返回士兵 AtkRange
@@ -98,7 +98,7 @@ func GetArmyByCVC(c *gin.Context) {
 	}
 	army, err := service.GetArmyByCVC(cvc)
 	if err != "" {
-		c.String(400, err)
+		c.String(404, err)
 		return
 	}
 	c.JSON(200, army)
@@ -110,9 +110,13 @@ func GetArmyByCVC(c *gin.Context) {
 func GetArmyByUnlockArena(c *gin.Context) {
 	unlockArena := c.Query("unlockarena")
 	if unlockArena == "" {
-		c.String(400, "请输入 unlock_arena\n")
+		c.String(400, "请输入 unlockarena\n")
 		return
 	}
 	unlockArenaMap := service.GetArmyByUnlockArena(unlockArena)
+	if unlockArenaMap == nil {
+		c.String(404, "未找到相关资源")
+	}
+
 	c.JSON(200, unlockArenaMap)
 }

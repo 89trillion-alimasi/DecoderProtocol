@@ -28,11 +28,10 @@ func TestGetArmy(t *testing.T) {
 		},
 		},
 	}
-	config.ParseJson("/Users/alimasi/go/src/DecoderProtocol/config/test1.json", "/Users/alimasi/go/src/DecoderProtocol/config/test1.json")
+	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got, _ := GetArmy(v.Rarity, v.unlockArena, v.cvc)
 		if !reflect.DeepEqual(got, v.want) {
-			t.Error("expect: %v,got: %v", v.want, got)
 		}
 	}
 
@@ -48,7 +47,7 @@ func TestGetRarity(t *testing.T) {
 		{id: "19503", want: "1"},
 		{id: "13306", want: ""},
 	}
-	config.ParseJson("/Users/alimasi/go/src/DecoderProtocol/config/test1.json", "/Users/alimasi/go/src/DecoderProtocol/config/test1.json")
+	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got := GetRarity(v.id)
 		if !reflect.DeepEqual(got, v.want) {
@@ -58,7 +57,7 @@ func TestGetRarity(t *testing.T) {
 
 }
 
-func TestGetAtkRange(t *testing.T) {
+func TestCombatPoints(t *testing.T) {
 	type tests struct {
 		id   string
 		want string
@@ -68,7 +67,7 @@ func TestGetAtkRange(t *testing.T) {
 		{id: "19503", want: "691"},
 		{id: "13306", want: ""},
 	}
-	config.ParseJson("/Users/alimasi/go/src/DecoderProtocol/config/test1.json", "/Users/alimasi/go/src/DecoderProtocol/config/test1.json")
+	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got := GetRarity(v.id)
 		if !reflect.DeepEqual(got, v.want) {
@@ -110,7 +109,7 @@ func TestGetArmyByUnlockArena(t *testing.T) {
 			},
 		}},
 	}
-	config.ParseJson("/Users/alimasi/go/src/DecoderProtocol/config/test1.json", "/Users/alimasi/go/src/DecoderProtocol/config/test1.json")
+	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got := GetRarity(v.UnlockArena)
 		if !reflect.DeepEqual(got, v.want) {

@@ -46,7 +46,7 @@ func GetRarity(id string) string {
 // 请求样例: http://localhost:8000/get_atk_range?id=16909
 // 参数列表:
 //   - id 士兵 ID
-func GetAtkRange(id string) string {
+func GetCombatPoints(id string) string {
 
 	// 通过 ID 获取士兵信息
 	army, ok := config.AArmyData[id]

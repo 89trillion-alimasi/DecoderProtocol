@@ -2,6 +2,7 @@ package main
 
 import (
 	"DecoderProtocol/config"
+	"DecoderProtocol/envs"
 	"DecoderProtocol/router"
 	"fmt"
 	"github.com/sirupsen/logrus"
@@ -21,10 +22,10 @@ func main() {
 
 	// 解析命令行参数, 并读取 ini 中的端口号
 	// 如果解析失败会立即退出
-	port := config.Parse()
+	port := envs.Parse()
 
 	// 解析数据文件
-	config.ParseJson(config.Conf.InputPath, config.Conf.OutputPath)
+	config.ParseJson(envs.Conf.InputPath, envs.Conf.OutputPath)
 
 	// 初始化 gin router
 	r := router.InitRouter()

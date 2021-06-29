@@ -13,7 +13,7 @@ func InitRouter() *gin.Engine {
 	// 添加路由
 	r.GET("/getarmy", controller.GetArmy)
 	r.GET("/getrarity", controller.GetRarity)
-	r.GET("/getatkrange", controller.GetAtkRange)
+	r.GET("/getcombatpoints", controller.GetCombatPoints)
 	r.GET("/getarmybycvc", controller.GetArmyByCVC)
 	r.GET("/getarmybyunlockarena", controller.GetArmyByUnlockArena)
 
