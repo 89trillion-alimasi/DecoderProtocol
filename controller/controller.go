@@ -16,19 +16,19 @@ func GetArmy(c *gin.Context) {
 	rarity := c.Query("rarity")
 	if rarity == "" {
 		// 如果获取失败则返回 400，并给出错误消息
-		c.String(400, "请输入士兵 rarity\n")
+		c.JSON(Inputrarity, gin.H{Message: StatusText(Inputrarity)})
 		return
 	}
 
 	unlockArena := c.Query("unlockarena")
 	if unlockArena == "" {
-		c.String(400, "请输入士兵 unlockarena\n")
+		c.JSON(InputUnlockarena, gin.H{Message: StatusText(InputUnlockarena)})
 		return
 	}
 
 	cvc := c.Query("cvc")
 	if cvc == "" {
-		c.String(400, "请输入 cvc\n")
+		c.JSON(InputCvc, gin.H{Message: StatusText(InputCvc)})
 		return
 	}
 
@@ -36,11 +36,11 @@ func GetArmy(c *gin.Context) {
 	armySlice, err := service.GetArmy(rarity, unlockArena, cvc)
 
 	if err != "" {
-		c.String(404, "未找到士兵")
+		c.JSON(NotFoundSoldier, gin.H{Message: StatusText(NotFoundSoldier)})
 	}
 
 	// 将士兵信息以 json 形式返回
-	c.JSON(200, armySlice)
+	c.JSON(Success, armySlice)
 }
 
 // GetRarity 根据 id 获取士兵稀有度
@@ -50,18 +50,18 @@ func GetArmy(c *gin.Context) {
 func GetRarity(c *gin.Context) {
 	id := c.Query("id")
 	if id == "" {
-		c.String(400, "请输入士兵 id\n")
+		c.JSON(InputId, gin.H{Message: StatusText(InputId)})
 		return
 	}
 	rarity := service.GetRarity(id)
 
 	if rarity == "士兵不存在" {
-		c.String(404, "rarity")
+		c.JSON(NotFoundSoldier, gin.H{Message: StatusText(NotFoundSoldier)})
 		return
 	}
 
 	// 返回士兵 Rarity
-	c.String(200, rarity)
+	c.JSON(Success, gin.H{Message: rarity})
 }
 
 // GetAtkRange 根据 id 获取士兵战力
@@ -71,18 +71,18 @@ func GetRarity(c *gin.Context) {
 func GetCombatPoints(c *gin.Context) {
 	id := c.Query("id")
 	if id == "" {
-		c.String(400, "请输入士兵 ID\n")
+		c.JSON(InputId, gin.H{Message: StatusText(InputId)})
 		return
 	}
 
 	CombatPoints := service.GetCombatPoints(id)
 
 	if CombatPoints == "士兵不存在" {
-		c.String(404, CombatPoints)
+		c.JSON(NotFoundSoldier, gin.H{Message: StatusText(NotFoundSoldier)})
 		return
 	}
 	// 返回士兵 AtkRange
-	c.String(200, CombatPoints)
+	c.JSON(Success, gin.H{Message: CombatPoints})
 }
 
 // GetArmyByCVC 根据 cvc 获取所有合法士兵
@@ -93,30 +93,30 @@ func GetCombatPoints(c *gin.Context) {
 func GetArmyByCVC(c *gin.Context) {
 	cvc := c.Query("cvc")
 	if cvc == "" {
-		c.String(400, "请输入 cvc\n")
+		c.JSON(InputCvc, gin.H{Message: StatusText(InputCvc)})
 		return
 	}
 	army, err := service.GetArmyByCVC(cvc)
 	if err != "" {
-		c.String(404, err)
+		c.JSON(NotFoundSoldier, gin.H{Message: StatusText(NotFoundSoldier)})
 		return
 	}
-	c.JSON(200, army)
+	c.JSON(Success, gin.H{Message: army})
 }
 
 // GetArmyByUnlockArena 获取每个阶段解锁的士兵 json 数据
-// 请求样例: http://localhost:8000/get_army_by_unlock_arena?unlock_arena=3
+// 请求样例: http://localhost:8000/getarmybyunlockarena?unlockarena=3
 // 该接口不需要参数
 func GetArmyByUnlockArena(c *gin.Context) {
 	unlockArena := c.Query("unlockarena")
 	if unlockArena == "" {
-		c.String(400, "请输入 unlockarena\n")
+		c.JSON(InputUnlockarena, gin.H{Message: StatusText(InputUnlockarena)})
 		return
 	}
 	unlockArenaMap := service.GetArmyByUnlockArena(unlockArena)
 	if unlockArenaMap == nil {
-		c.String(404, "未找到相关资源")
+		c.JSON(NotFoundInformation, gin.H{Message: StatusText(NotFoundInformation)})
 	}
 
-	c.JSON(200, unlockArenaMap)
+	c.JSON(Success, gin.H{Message: unlockArenaMap})
 }
