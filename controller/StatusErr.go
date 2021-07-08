@@ -22,8 +22,25 @@ var statusText = map[int]string{
 	InputId:             "请输入士兵id",
 }
 
+type Mesg struct {
+	Code    int
+	Message string
+	Data    interface{}
+}
+
 // StatusText returns a text for the HTTP status code. It returns the empty
 // string if the code is unknown.
-func StatusText(code int) string {
-	return statusText[code]
+func StatusText(code int) Mesg {
+	return Mesg{
+		Code:    code,
+		Message: statusText[code],
+	}
+}
+
+func StatusText1(code int, data interface{}) Mesg {
+	return Mesg{
+		Code:    code,
+		Message: statusText[code],
+		Data:    data,
+	}
 }
