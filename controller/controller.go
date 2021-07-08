@@ -118,5 +118,5 @@ func GetArmyByUnlockArena(c *gin.Context) {
 		c.JSON(NotFoundInformation, StatusText(NotFoundInformation))
 	}
 
-	c.JSON(Success, StatusText1(Success, unlockArena))
+	c.JSON(Success, StatusText1(Success, unlockArenaMap))
 }
