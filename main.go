@@ -1,8 +1,8 @@
 package main
 
 import (
-	"DecoderProtocol/config"
 	"DecoderProtocol/envs"
+	"DecoderProtocol/envs/serviceconfig"
 	"DecoderProtocol/router"
 	"fmt"
 	"github.com/sirupsen/logrus"
@@ -25,7 +25,7 @@ func main() {
 	port := envs.Parse()
 
 	// 解析数据文件
-	config.ParseJson(envs.Conf.InputPath, envs.Conf.OutputPath)
+	serviceconfig.ParseJson(envs.Conf.InputPath, envs.Conf.OutputPath)
 
 	// 初始化 gin router
 	r := router.InitRouter()
