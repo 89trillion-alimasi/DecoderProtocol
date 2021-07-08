@@ -1,7 +1,7 @@
 package service
 
 import (
-	"DecoderProtocol/config"
+	"DecoderProtocol/envs/serviceconfig"
 	"DecoderProtocol/model"
 	"reflect"
 	"testing"
@@ -28,7 +28,7 @@ func TestGetArmy(t *testing.T) {
 		},
 		},
 	}
-	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
+	serviceconfig.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got, _ := GetArmy(v.Rarity, v.unlockArena, v.cvc)
 		if !reflect.DeepEqual(got, v.want) {
@@ -47,7 +47,7 @@ func TestGetRarity(t *testing.T) {
 		{id: "19503", want: "1"},
 		{id: "13306", want: ""},
 	}
-	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
+	serviceconfig.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got := GetRarity(v.id)
 		if !reflect.DeepEqual(got, v.want) {
@@ -67,7 +67,7 @@ func TestCombatPoints(t *testing.T) {
 		{id: "19503", want: "691"},
 		{id: "13306", want: ""},
 	}
-	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
+	serviceconfig.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got := GetRarity(v.id)
 		if !reflect.DeepEqual(got, v.want) {
@@ -109,7 +109,7 @@ func TestGetArmyByUnlockArena(t *testing.T) {
 			},
 		}},
 	}
-	config.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
+	serviceconfig.ParseJson("../DecoderProtocol/config/test1.json", "../DecoderProtocol/config/test1.json")
 	for _, v := range test {
 		got := GetRarity(v.UnlockArena)
 		if !reflect.DeepEqual(got, v.want) {

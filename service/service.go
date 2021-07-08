@@ -1,7 +1,7 @@
 package service
 
 import (
-	"DecoderProtocol/config"
+	"DecoderProtocol/envs/serviceconfig"
 	"DecoderProtocol/model"
 )
 
@@ -15,7 +15,7 @@ func GetArmy(rarity, unlockArena, cvc string) ([]model.ArmyInfo, string) {
 
 	// 遍历输入数据中的士兵信息，根据要求取出 Rarity、UnlockArena、cvc 相同的士兵
 	var armySlice []model.ArmyInfo
-	for _, v := range config.AArmyData {
+	for _, v := range serviceconfig.AArmyData {
 		if v.Rarity == rarity && v.UnlockArena == unlockArena && v.Cvc == cvc {
 			armySlice = append(armySlice, v)
 		}
@@ -35,7 +35,7 @@ func GetArmy(rarity, unlockArena, cvc string) ([]model.ArmyInfo, string) {
 func GetRarity(id string) string {
 
 	// 通过 ID 获取士兵信息
-	army, ok := config.AArmyData[id]
+	army, ok := serviceconfig.AArmyData[id]
 	if !ok {
 		return "士兵不存在"
 	}
@@ -49,7 +49,7 @@ func GetRarity(id string) string {
 func GetCombatPoints(id string) string {
 
 	// 通过 ID 获取士兵信息
-	army, ok := config.AArmyData[id]
+	army, ok := serviceconfig.AArmyData[id]
 	if !ok {
 		return "士兵不存在"
 	}
@@ -66,7 +66,7 @@ func GetArmyByCVC(cvc string) ([]model.ArmyInfo, string) {
 
 	// 遍历所有士兵，找到 cvc 相同的士兵并返回
 	var armySlice []model.ArmyInfo
-	for _, v := range config.AArmyData {
+	for _, v := range serviceconfig.AArmyData {
 		if v.Cvc == cvc {
 			armySlice = append(armySlice, v)
 		}
@@ -85,7 +85,7 @@ func GetArmyByUnlockArena(unlockArena string) map[string][]model.ArmyInfo {
 	var unlockArenaMap = make(map[string][]model.ArmyInfo)
 
 	// 遍历所有士兵信息
-	for _, v := range config.AArmyData {
+	for _, v := range serviceconfig.AArmyData {
 		// 尝试以 UnlockArena(解锁阶段) 作为 key 从 map 中查找
 		if v.UnlockArena <= unlockArena {
 			armySlice, ok := unlockArenaMap[v.UnlockArena]
